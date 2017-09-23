@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet" />
+    <title>jQuery UI Slider for Knockout.js custom binding demo</title>
+    <style>
+        div.demoblock {
+            display: block;
+            margin: 15px;
+        }
+
+        button.demoblock {
+            display: block;
+            width: 10em;
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+            integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+            crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
+
+    <script src="ko.bindingHandlers.slider.js"></script>
+    <script src="viewmodel.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            this.vm = new ViewModel();
+            ko.applyBindings(this.vm, $('body')[0]);
+        });
+    </script>
+
+</head>
+
+<body>
+    <div>
+        <div class="demoblock">
+            <h2>jQuery UI Slider for Knockout custom binding demo</h2>
+            <h3>(actual binding implementation in <a href="ko.bindingHandlers.slider.js">ko.bindingHandlers.slider.js</a>)</h3>
+        </div>
+        <div class="demoblock">
+            <span>
+                Supported properties: <span style="font-style:italic">value, min, max, step, enabled, values (or valueMin / valueMax)</span> (if sliderOptions.range set to true)
+            </span>
+        </div>
+        <div class="demoblock">
+            <h3>Simple slider</h3>
+        </div>
+        <div class="demoblock">
+            <div data-bind="slider: { value: selectedValue, min: 0, max: maxRangeValue, step: stepValue, enabled: isSliderEnabled }, sliderOptions: { min: 0, step: 5 }"></div>
+        </div>
+        <div class="demoblock">
+            <label data-bind="text: 'Value: ' + selectedValue().toString() + '&nbsp;&nbsp;&nbsp;   step = ' + stepValue().toString()"></label>
+        </div>
+        <div class="demoblock">
+            <input type="checkbox" data-bind="checked: isSliderEnabled">isEnabled</>
+        </div>
+        <div class="demoblock">
+            <button class="demoblock" data-bind="click: setZeroValue">Set value = 0</button>
+        </div>
+        <div class="demoblock">
+            <button class="demoblock" data-bind="click: setValue50">Set value = 50</button>
+        </div>
+        <div class="demoblock">
+            <button class="demoblock" data-bind="click: setMaxValue">Set max = 100</button>
+        </div>
+        <div class="demoblock">
+            <button class="demoblock" data-bind="click: setStepValue">Set step = 10</button>
+        </div>
+        <div class="demoblock">
+            <h3>Range slider</h3>
+        </div>
+        <div class="demoblock">
+            <div data-bind="slider: { valueMin: slider2valueMin, valueMax: slider2valueMax, enabled: isSliderEnabled }, sliderOptions: { min: 0, max: 200, step: 5, range: true, values: [ 25, 70 ] }"></div>
+        </div>
+        <div class="demoblock">
+            <span>Min:</span><input type="text" data-bind="value: slider2valueMin" />
+            <span>Max:</span><input type="text" data-bind="value: slider2valueMax" />
+        </div>
+    </div>
+</body>
+</html>
