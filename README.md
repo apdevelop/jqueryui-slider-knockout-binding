@@ -1,9 +1,10 @@
 # jQuery UI Slider for KnockoutJS custom binding
 Sample JS code adding custom binding as `ko.bindingHandlers.slider` to jQuery UI slider widget.
-Supported properties for binding are
+Supported properties for binding are:
 * `value`, `min`, `max`, `step`, `enabled` for simple slider
 * `values` (or separate `valueMin`, `valueMax`) for range slider (if `sliderOptions.range` set to `true`).
 
+Check the [demo page](https://htmlpreview.github.io/?https://github.com/apdevelop/jqueryui-slider-knockout-binding/blob/master/slider-binding.html) to see it in action.
 
 ### Sample usage
 
@@ -23,7 +24,7 @@ function ViewModel() {
         this.selectedValue(0);
     };
 	...
-	}
+}
 ```
 
 **Note** Values, which used as bindings in slider: {...} has priority over sliderOptions.
