@@ -1,14 +1,16 @@
 ﻿function ViewModel() {
     this.selectedValue = ko.observable(0);
     this.selectedValue.subscribe(function (value) {
-        console.log("in observable subscribe callback: " + this.selectedValue());
+        ////console.log("in observable subscribe callback: " + this.selectedValue());
     }, this);
 
     this.maxRangeValue = ko.observable(150);
+
     this.stepValue = ko.observable(1);
 
     this.isSliderEnabled = ko.observable(true);
 
+    // Methods
     this.setZeroValue = function () {
         this.selectedValue(0);
     };
@@ -25,7 +27,13 @@
         this.stepValue(10);
     };
 
+    // Range values
     this.slider2valueMin = ko.observable(10);
 
     this.slider2valueMax = ko.observable(40);
+
+    // Lazy slider
+    this.selectedLazyValue = ko.observable(20);
+    this.previewLazyValue = ko.observable(20);
+
 }

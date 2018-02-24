@@ -55,7 +55,7 @@
             <div data-bind="slider: { value: selectedValue, min: 0, max: maxRangeValue, step: stepValue, enabled: isSliderEnabled }, sliderOptions: { min: 0, step: 5 }"></div>
         </div>
         <div class="demoblock">
-            <label data-bind="text: 'Value: ' + selectedValue().toString() + '&nbsp;&nbsp;&nbsp;   step = ' + stepValue().toString()"></label>
+            <label data-bind="text: 'Value: ' + selectedValue().toString() + '&nbsp;&nbsp;&nbsp;   max = ' + maxRangeValue().toString() + '&nbsp;&nbsp;&nbsp;   step = ' + stepValue().toString()"></label>
         </div>
         <div class="demoblock">
             <input type="checkbox" data-bind="checked: isSliderEnabled">isEnabled</>
@@ -72,8 +72,15 @@
         <div class="demoblock">
             <button class="demoblock" data-bind="click: setStepValue">Set step = 10</button>
         </div>
+
+        <hr />
         <div class="demoblock">
             <h3>Range slider</h3>
+        </div>
+        <div class="demoblock">
+            <span>
+                <span style="font-style:italic">sliderOptions: { range: true }</span>
+            </span>
         </div>
         <div class="demoblock">
             <div data-bind="slider: { valueMin: slider2valueMin, valueMax: slider2valueMax, enabled: isSliderEnabled }, sliderOptions: { min: 0, max: 200, step: 5, range: true, values: [ 25, 70 ] }"></div>
@@ -81,6 +88,23 @@
         <div class="demoblock">
             <span>Min:</span><input type="text" data-bind="value: slider2valueMin" />
             <span>Max:</span><input type="text" data-bind="value: slider2valueMax" />
+        </div>
+
+        <hr />
+        <div class="demoblock">
+            <h3>Lazy slider</h3>
+        </div>
+        <div class="demoblock">
+            <span>
+                <span style="font-style:italic">slider: { lazy: true }</span>
+                <p>Update value(s) only after mouse or key release</p>
+            </span>
+        </div>
+        <div class="demoblock">
+            <div data-bind="slider: { value: selectedLazyValue, previewValue: previewLazyValue, lazy: true }, sliderOptions: { min: 0, max: 100, step: 1 }"></div>
+        </div>
+        <div class="demoblock">
+            <label data-bind="text: 'Lazy value: ' + selectedLazyValue().toString() + '  Preview Value: ' + previewLazyValue().toString()"></label>
         </div>
     </div>
 </body>
